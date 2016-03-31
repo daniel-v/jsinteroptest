@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JS Interop test</title>
+        <script>
+            (function(scope) {
+                "use strict";
+                // creating a dummy service
+                var MyService = {
+                    methodToCall: function(param) {
+                        console.log("This got called with", arguments);
+                    }
+                };
+                scope["MyService"] = MyService;
+            })(window);
+        </script>
+    </head>
+    <body>
+        <script type="application/dart" src="main.dart"></script>
+    </body>
+</html>
